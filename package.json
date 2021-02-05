@@ -2,6 +2,8 @@
   "name": "notes-app-client",
   "version": "0.1.0",
   "private": true,
+  "author": "Kovalchuk Mykhailo",
+  "repository": "https://github.com/kovalchuk-mykhailo/notes-app-client.git",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
