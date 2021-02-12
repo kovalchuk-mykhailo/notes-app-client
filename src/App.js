@@ -19,6 +19,7 @@ const App = () => {
   const onLoad = async () => {
     try {
       await Auth.currentSession();
+
       userHasAuthenticated(true);
     } catch (error) {
       if (error !== "No current user") {
@@ -44,7 +45,7 @@ const App = () => {
     !isAuthenticating && (
       <div className="App container py-3">
         <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
-          <LinkContainer to="/">
+          <LinkContainer to={ROUTE.home}>
             <Navbar.Brand className="font-weight-bold text-muted">
               Scratch
             </Navbar.Brand>
@@ -53,13 +54,18 @@ const App = () => {
           <Navbar.Collapse className="justify-content-end">
             <Nav activeKey={window.location.pathname}>
               {isAuthenticated ? (
-                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                <>
+                  <LinkContainer to={ROUTE.newNote}>
+                    <Nav.Link>Add note</Nav.Link>
+                  </LinkContainer>
+                  <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                </>
               ) : (
                 <>
-                  <LinkContainer to="/signup">
+                  <LinkContainer to={ROUTE.signup}>
                     <Nav.Link>Signup</Nav.Link>
                   </LinkContainer>
-                  <LinkContainer to="/login">
+                  <LinkContainer to={ROUTE.login}>
                     <Nav.Link>Login</Nav.Link>
                   </LinkContainer>
                 </>
