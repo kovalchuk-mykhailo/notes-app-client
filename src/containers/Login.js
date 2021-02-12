@@ -9,7 +9,7 @@ import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 
 import "./Login.css";
-import { ROUTE } from "../constants/routes";
+import { ROUTES } from "../constants/routes";
 
 export default function Login() {
   const history = useHistory();
@@ -33,7 +33,7 @@ export default function Login() {
       await Auth.signIn(fields.email, fields.password);
       userHasAuthenticated(true);
 
-      history.push(ROUTE.home);
+      history.push(ROUTES.home);
     } catch (e) {
       onError(e);
       setIsLoading(false);

@@ -7,7 +7,7 @@ import LoaderButton from "../components/LoaderButton";
 import { useAppContext } from "../libs/contextLib";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
-import { ROUTE } from "../constants/routes";
+import { ROUTES } from "../constants/routes";
 
 import "./Signup.css";
 
@@ -64,7 +64,7 @@ export default function Signup() {
       await Auth.signIn(fields.email, fields.password);
 
       userHasAuthenticated(true);
-      history.push(ROUTE.home);
+      history.push(ROUTES.home);
     } catch (e) {
       onError(e);
       setIsLoading(false);

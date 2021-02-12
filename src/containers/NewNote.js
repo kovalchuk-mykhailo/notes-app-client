@@ -7,7 +7,7 @@ import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import { onError } from "../libs/errorLib";
 import { s3Upload } from "../libs/awsLib";
-import { ROUTE } from "../constants/routes";
+import { ROUTES } from "../constants/routes";
 import { NOTES_API } from "../constants/notesApi";
 
 import "./NewNote.css";
@@ -27,7 +27,7 @@ export default function NewNote() {
   };
 
   const createNote = (note) => {
-    return API.post(NOTES_API.name, NOTES_API.route, {
+    return API.post(NOTES_API.name, NOTES_API.routes.allNotes, {
       body: note,
     });
   };
@@ -51,7 +51,7 @@ export default function NewNote() {
 
       await createNote({ content, attachment });
 
-      history.push(ROUTE.home);
+      history.push(ROUTES.home);
     } catch (e) {
       onError(e);
       setIsLoading(false);

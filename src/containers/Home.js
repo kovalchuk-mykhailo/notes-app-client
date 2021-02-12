@@ -6,7 +6,7 @@ import { BsPencilSquare } from "react-icons/bs";
 
 import { useAppContext } from "../libs/contextLib";
 import { onError } from "../libs/errorLib";
-import { ROUTE } from "../constants/routes";
+import { ROUTES } from "../constants/routes";
 import { NOTES_API } from "../constants/notesApi";
 
 import "./Home.css";
@@ -17,7 +17,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const loadNotes = () => {
-    return API.get(NOTES_API.name, NOTES_API.route);
+    return API.get(NOTES_API.name, NOTES_API.routes.allNotes);
   };
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function Home() {
 
   const NoteItem = ({ noteId, content, createdAt }) => {
     return (
-      <LinkContainer to={ROUTE.noteById(noteId)}>
+      <LinkContainer to={ROUTES.noteById(noteId)}>
         <ListGroup.Item action>
           <span className="font-weight-bold">
             {content.trim().split("\n")[0]}
@@ -58,7 +58,7 @@ export default function Home() {
   const renderNotesList = (notes) => {
     return (
       <>
-        <LinkContainer to={ROUTE.newNote}>
+        <LinkContainer to={ROUTES.newNote}>
           <ListGroup.Item action className="py-3 text-nowrap text-truncate">
             <BsPencilSquare size={17} />
             <span className="ml-2 font-weight-bold">Create a new note</span>

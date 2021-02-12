@@ -5,7 +5,7 @@ import { Auth } from "aws-amplify";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import { ROUTE } from "./constants/routes";
+import { ROUTES } from "./constants/routes";
 import { onError } from "./libs/errorLib";
 import { AppContext } from "./libs/contextLib";
 import Routes from "./Routes";
@@ -38,14 +38,14 @@ const App = () => {
     await Auth.signOut();
 
     userHasAuthenticated(false);
-    history.push(ROUTE.login);
+    history.push(ROUTES.login);
   };
 
   return (
     !isAuthenticating && (
       <div className="App container py-3">
         <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
-          <LinkContainer to={ROUTE.home}>
+          <LinkContainer to={ROUTES.home}>
             <Navbar.Brand className="font-weight-bold text-muted">
               Scratch
             </Navbar.Brand>
@@ -55,17 +55,17 @@ const App = () => {
             <Nav activeKey={window.location.pathname}>
               {isAuthenticated ? (
                 <>
-                  <LinkContainer to={ROUTE.newNote}>
+                  <LinkContainer to={ROUTES.newNote}>
                     <Nav.Link>Add note</Nav.Link>
                   </LinkContainer>
                   <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
                 </>
               ) : (
                 <>
-                  <LinkContainer to={ROUTE.signup}>
+                  <LinkContainer to={ROUTES.signup}>
                     <Nav.Link>Signup</Nav.Link>
                   </LinkContainer>
-                  <LinkContainer to={ROUTE.login}>
+                  <LinkContainer to={ROUTES.login}>
                     <Nav.Link>Login</Nav.Link>
                   </LinkContainer>
                 </>

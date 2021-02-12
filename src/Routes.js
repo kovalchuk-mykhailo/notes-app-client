@@ -6,22 +6,26 @@ import Login from "./containers/Login";
 import NotFound from "./containers/NotFound";
 import Signup from "./containers/Signup";
 import NewNote from "./containers/NewNote";
-import { ROUTE } from "./constants/routes";
+import Notes from "./containers/Notes/Notes";
+import { ROUTES } from "./constants/routes";
 
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path={ROUTE.home}>
+      <Route exact path={ROUTES.home}>
         <Home />
       </Route>
-      <Route exact path={ROUTE.login}>
+      <Route exact path={ROUTES.login}>
         <Login />
       </Route>
-      <Route exact path={ROUTE.signup}>
+      <Route exact path={ROUTES.signup}>
         <Signup />
       </Route>
-      <Route exact path={ROUTE.newNote}>
+      <Route exact path={ROUTES.newNote}>
         <NewNote />
+      </Route>
+      <Route exact path={ROUTES.singleNote}>
+        <Notes />
       </Route>
       {/* Finally, catch all unmatched routes */}
       <Route>
