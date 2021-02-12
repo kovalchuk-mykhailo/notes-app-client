@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
+import UnauthenticatedRoute from "./components/custom-routes/UnauthenticatedRoute";
+import AuthenticatedRoute from "./components/custom-routes/AuthenticatedRoute";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import NotFound from "./containers/NotFound";
@@ -8,6 +10,7 @@ import Signup from "./containers/Signup";
 import NewNote from "./containers/NewNote";
 import Notes from "./containers/Notes";
 import Settings from "./containers/Settings";
+
 import { ROUTES } from "./constants/routes";
 
 export default function Routes() {
@@ -16,21 +19,21 @@ export default function Routes() {
       <Route exact path={ROUTES.home}>
         <Home />
       </Route>
-      <Route exact path={ROUTES.login}>
+      <UnauthenticatedRoute exact path={ROUTES.login}>
         <Login />
-      </Route>
-      <Route exact path={ROUTES.signup}>
+      </UnauthenticatedRoute>
+      <UnauthenticatedRoute exact path={ROUTES.signup}>
         <Signup />
-      </Route>
-      <Route exact path={ROUTES.newNote}>
+      </UnauthenticatedRoute>
+      <AuthenticatedRoute exact path={ROUTES.newNote}>
         <NewNote />
-      </Route>
-      <Route exact path={ROUTES.singleNote}>
+      </AuthenticatedRoute>
+      <AuthenticatedRoute exact path={ROUTES.singleNote}>
         <Notes />
-      </Route>
-      <Route exact path="/settings">
+      </AuthenticatedRoute>
+      <AuthenticatedRoute exact path={ROUTES.settings}>
         <Settings />
-      </Route>
+      </AuthenticatedRoute>
       {/* Finally, catch all unmatched routes */}
       <Route>
         <NotFound />
