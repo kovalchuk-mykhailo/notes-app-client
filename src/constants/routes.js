@@ -5,4 +5,5 @@ export const ROUTES = {
   newNote: "/notes/new",
   singleNote: "/notes/:id",
   noteById: (noteId) => `/notes/${noteId}`,
+  settings: "/settings",
 };

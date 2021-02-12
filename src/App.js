@@ -58,6 +58,9 @@ const App = () => {
                   <LinkContainer to={ROUTES.newNote}>
                     <Nav.Link>Add note</Nav.Link>
                   </LinkContainer>
+                  <LinkContainer to={ROUTES.settings}>
+                    <Nav.Link>Settings</Nav.Link>
+                  </LinkContainer>
                   <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
                 </>
               ) : (
