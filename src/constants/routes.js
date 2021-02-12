@@ -3,4 +3,5 @@ export const ROUTE = {
   login: "/login",
   signup: "/signup",
   newNote: "/notes/new",
+  noteById: (noteId) => `/notes/${noteId}`,
 };

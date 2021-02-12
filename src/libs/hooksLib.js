@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useFormFields(initialState) {
+export const useFormFields = (initialState) => {
   const [fields, setValues] = useState(initialState);
 
   return [
@@ -12,4 +12,4 @@ export function useFormFields(initialState) {
       });
     },
   ];
-}
+};

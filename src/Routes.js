@@ -20,7 +20,7 @@ export default function Routes() {
       <Route exact path={ROUTE.signup}>
         <Signup />
       </Route>
-      <Route exact path="/notes/new">
+      <Route exact path={ROUTE.newNote}>
         <NewNote />
       </Route>
       {/* Finally, catch all unmatched routes */}
