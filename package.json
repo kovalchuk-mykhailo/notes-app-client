@@ -5,6 +5,8 @@
   "author": "Kovalchuk Mykhailo",
   "repository": "https://github.com/kovalchuk-mykhailo/notes-app-client.git",
   "dependencies": {
+    "@sentry/react": "^6.1.0",
+    "@sentry/tracing": "^6.1.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",

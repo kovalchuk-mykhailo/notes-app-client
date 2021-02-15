@@ -5,10 +5,11 @@ import { Auth } from "aws-amplify";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
+import ErrorBoundary from "./components/ErrorBoundary";
+import Routes from "./Routes";
 import { ROUTES } from "./constants/routes";
 import { onError } from "./libs/errorLib";
 import { AppContext } from "./libs/contextLib";
-import Routes from "./Routes";
 
 import "./App.css";
 
@@ -76,9 +77,13 @@ const App = () => {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
-          <Routes />
-        </AppContext.Provider>
+        <ErrorBoundary>
+          <AppContext.Provider
+            value={{ isAuthenticated, userHasAuthenticated }}
+          >
+            <Routes />
+          </AppContext.Provider>
+        </ErrorBoundary>
       </div>
     )
   );
