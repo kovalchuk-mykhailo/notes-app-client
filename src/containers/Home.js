@@ -18,7 +18,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const loadNotes = () => {
-    return API.get(NOTES_API.name, NOTES_API.routes.invalidPath);
+    return API.put(NOTES_API.name, NOTES_API.routes.allNotes);
   };
 
   useEffect(() => {
