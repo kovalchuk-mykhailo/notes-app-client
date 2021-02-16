@@ -3,5 +3,6 @@ export const NOTES_API = {
   routes: {
     allNotes: "/notes",
     singleNote: (noteId) => `/notes/${noteId}`,
+    invalidPath: "/invalid_path",
   },
 };
