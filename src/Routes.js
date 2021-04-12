@@ -12,12 +12,16 @@ import Notes from "./containers/Notes";
 import Settings from "./containers/Settings";
 
 import { ROUTES } from "./constants/routes";
+import PageForTests from "./components/PageForTests";
 
 export default function Routes() {
   return (
     <Switch>
       <Route exact path={ROUTES.home}>
         <Home />
+      </Route>
+      <Route exact path={ROUTES.testsPage}>
+        <PageForTests />
       </Route>
       <UnauthenticatedRoute exact path={ROUTES.login}>
         <Login />

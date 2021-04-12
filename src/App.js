@@ -46,6 +46,11 @@ const App = () => {
     !isAuthenticating && (
       <div className="App container py-3">
         <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
+          <LinkContainer to={ROUTES.testsPage}>
+            <Navbar.Brand className="font-weight-bold text-muted">
+              Tests Page
+            </Navbar.Brand>
+          </LinkContainer>
           <LinkContainer to={ROUTES.home}>
             <Navbar.Brand className="font-weight-bold text-muted">
               Scratch
