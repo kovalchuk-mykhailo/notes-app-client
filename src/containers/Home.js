@@ -8,7 +8,7 @@ import { BsPencilSquare } from "react-icons/bs";
 import { useAppContext } from "../libs/contextLib";
 import { onError } from "../libs/errorLib";
 import { ROUTES } from "../constants/routes";
-import { NOTES_API } from "../constants/notesApi";
+import { SHOP_API } from "../constants/notesApi";
 
 import "./Home.css";
 
@@ -18,7 +18,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const loadNotes = () => {
-    return API.get(NOTES_API.name, NOTES_API.routes.allNotes);
+    return API.get(SHOP_API.name, SHOP_API.routes.reviewsOfUser);
   };
 
   useEffect(() => {
@@ -29,6 +29,8 @@ export default function Home() {
 
       try {
         const notes = await loadNotes();
+
+        console.log(":::NOTES:::", notes);
         setNotes(notes);
       } catch (e) {
         onError(e);
